@@ -26,11 +26,11 @@ ENV VITE_FRAME_PRESET=${VITE_FRAME_PRESET}
 ENV VITE_FRAME_PRESETS=${VITE_FRAME_PRESETS}
 ENV VITE_DISABLE_LOCAL_STORAGE=${VITE_DISABLE_LOCAL_STORAGE}
 
-ENV VITE_HIDE_CREDITS="true"
-ENV VITE_DEFAULT_PRESET="PSU"
-ENV VITE_DEFAULT_DATA_TO_ENCODE="https://playsorbonne.fr"
-ENV VITE_QR_CODE_PRESETS='{"name":"PSU","data":"https://playsorbonne.fr/","width":1000,"height":1000,"margin":0,"dotsOptions":{"color":"#ff7dc5","type":"extra-rounded"},"cornersSquareOptions":{"color":"#28c8ff","type":"extra-rounded"},"cornersDotOptions":{"color":"#28c8ff","type":"dot"},"imageOptions":{"margin":4},"qrOptions":{"errorCorrectionLevel":"H"},"borderRadius":"15px","background":"#ffffff"}'
-ENV VITE_DISABLE_LOCAL_STORAGE="true"
+ENV VITE_HIDE_CREDITS='true'
+ENV VITE_DEFAULT_PRESET='PSU'
+ENV VITE_DEFAULT_DATA_TO_ENCODE='https://playsorbonne.fr'
+ENV VITE_QR_CODE_PRESETS='[{"name":"PSU","data":"https://playsorbonne.fr/","width":1000,"height":1000,"margin":0,"dotsOptions":{"color":"#ff7dc5","type":"extra-rounded"},"cornersSquareOptions":{"color":"#28c8ff","type":"extra-rounded"},"cornersDotOptions":{"color":"#28c8ff","type":"dot"},"imageOptions":{"margin":4},"qrOptions":{"errorCorrectionLevel":"H"},"borderRadius":"15px","background":"#ffffff"}]'
+ENV VITE_DISABLE_LOCAL_STORAGE='true'
 
 COPY package*.json ./
 RUN npm install --frozen-lockfile
