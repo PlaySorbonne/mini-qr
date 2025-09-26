@@ -322,7 +322,9 @@ export const hackomania2025Preset = {
 
 
 export const psuPreset: Preset = {
-  ...defaultPresetOptions,
+  backgroundOptions: {
+    color: 'transparent'
+  },
   name: 'PSU',
   data: 'https://playsorbonne.fr',
   image: PSU_IMAGE_URL, 
@@ -372,21 +374,8 @@ export const builtInPresets: Preset[] = [
   ].sort((a, b) => a.name.localeCompare(b.name))
 ]
 
-function parsePresetsFromEnv(envVal?: string): Preset[] | undefined {
-  if (!envVal) return undefined
-  try {
-    return JSON.parse(envVal) as Preset[]
-  } catch (err) {
-    console.error('Failed to parse VITE_QR_CODE_PRESETS', err)
-    return undefined
-  }
-}
 
-const envPresets = parsePresetsFromEnv(import.meta.env.VITE_QR_CODE_PRESETS)
-export const allQrCodePresets: Preset[] = envPresets ?? builtInPresets
 
-export const defaultPreset: Preset =
-  import.meta.env.VITE_DEFAULT_PRESET
-    ? allQrCodePresets.find((p) => p.name === import.meta.env.VITE_DEFAULT_PRESET) ??
-      allQrCodePresets[0]
-    : allQrCodePresets[0]
+export const allQrCodePresets: Preset[] = builtInPresets
+
+export const defaultPreset: Preset = psuPreset
