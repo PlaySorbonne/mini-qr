@@ -355,6 +355,7 @@ export const psuPreset: Preset = {
 export const builtInPresets: Preset[] = [
   lyqhtPreset,
   plainPreset,
+  psuPreset,
   ...[
     padletPreset,
     uiliciousPreset,
@@ -385,8 +386,7 @@ function parsePresetsFromEnv(envVal?: string): Preset[] | undefined {
 
 const envPresets = parsePresetsFromEnv(import.meta.env.VITE_QR_CODE_PRESETS)
 export const allQrCodePresets: Preset[] = [
-  ...(envPresets ?? builtInPresets),
-  psuPreset
+  ...(envPresets ?? builtInPresets)
 ];
 
 
